@@ -14,7 +14,7 @@ def update_model(db_path, model, batch_size=10000):
     while results:
         data = np.array(results)
         X = data[:, 0]
-        y = data[:, 1]
+        y = data[:, 1].astype(int)
         classes = np.array([0, 1])
         X_train = vect.transform(X)
         model.partial_fit(X_train, y, classes=classes)
